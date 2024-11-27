@@ -13,26 +13,23 @@ var gpa = std.heap.GeneralPurposeAllocator(.{}){};
 var sym_arr = std.ArrayList(@Vector(2, u8)).init(gpa.allocator());
 
 const part_struct = struct {
-    part_num_1: u16,
-    part_num_2: u16,
+    part_num: u32,
     part_vector: @Vector(2, u8),
 
-    pub fn create(x: u8, y: u8, part1: u16, part2: u16) !part_struct {
+    pub fn create(x: u8, y: u8, part: u32) !part_struct {
           return part_struct {
               .part_vector = @Vector(2, u8){x, y},
-              .part_num_1 = part1,
-              .part_num_2 = part2,
+              .part_num = part,
           };
     }
 };
 var part_struct_arr = std.ArrayList(part_struct).init(gpa.allocator());
 
 pub fn sym_check(x: u8, y: u8) !@Vector(2, u8) {
-    print("debug\n", .{});
-    for (part_struct_arr.items[0..]) |capture| {
+    for (sym_arr.items[0..]) |capture| {
         for ( 0 .. 3) |ix| {
             for ( 0 .. 3) |iy| {
-                if (capture.part_vector[0] + 1 == ix + x and capture.part_vector[1] + 1 == iy + y) {
+                if (capture[0] + 1 == ix + x and capture[1] + 1 == iy + y) {
                   print("true\n", .{});
                   var ixx: u8 = undefined;
                   var iyy: u8 = undefined;
@@ -71,8 +68,6 @@ pub fn main() !void{
             break; 
         }
         
-        const new_part_struct = try part_struct.create(per_line_counter, line_num, 0, 0); 
-
         switch (read_byte) {
             '%' => { is_symbol = true; number = 0; try sym_arr.append(@Vector(2, u8){per_line_counter, line_num}); },
             '/' => { is_symbol = true; number = 0; try sym_arr.append(@Vector(2, u8){per_line_counter, line_num}); },
@@ -92,7 +87,6 @@ pub fn main() !void{
             print("found Symbol\n", .{});
         }
         print("per_line_counter = {}\n", .{per_line_counter});
-        //print("sym_arr = {d}\n", .{sym_arr.items[0..]});
         
     }
     
@@ -115,7 +109,7 @@ pub fn main() !void{
                 number = (number * 10);
                 if (is_part_num != true) {
                   sym_result = try sym_check(per_line_counter, line_num); 
-                  is_part_num = sym_result[0] > 0 and sym_result[1] > 0;
+                  is_part_num = (sym_result[0] > 0) and (sym_result[1] > 0);
                 } else {
                   print("is already a part number\n", .{});
                 }
@@ -126,7 +120,7 @@ pub fn main() !void{
                 number = (number * 10) + 1;
                 if (is_part_num != true) {
                   sym_result = try sym_check(per_line_counter, line_num); 
-                  is_part_num = sym_result[0] > 0 and sym_result[1] > 0;
+                  is_part_num = (sym_result[0] > 0) and (sym_result[1] > 0);
                 } else {
                   print("is already a part number\n", .{});
                 }
@@ -137,7 +131,7 @@ pub fn main() !void{
                 number = (number * 10) + 2;
                 if (is_part_num != true) {
                   sym_result = try sym_check(per_line_counter, line_num); 
-                  is_part_num = sym_result[0] > 0 and sym_result[1] > 0;
+                  is_part_num = (sym_result[0] > 0) and (sym_result[1] > 0);
                 } else {
                   print("is already a part number\n", .{});
                 }
@@ -147,7 +141,7 @@ pub fn main() !void{
                 number = (number * 10) + 3;
                 if (is_part_num != true) {
                   sym_result = try sym_check(per_line_counter, line_num); 
-                  is_part_num = sym_result[0] > 0 and sym_result[1] > 0;
+                  is_part_num = (sym_result[0] > 0) and (sym_result[1] > 0);
                 } else {
                   print("is already a part number\n", .{});
                 }
@@ -157,7 +151,7 @@ pub fn main() !void{
                 number = (number * 10) + 4;
                 if (is_part_num != true) {
                   sym_result = try sym_check(per_line_counter, line_num); 
-                  is_part_num = sym_result[0] > 0 and sym_result[1] > 0;
+                  is_part_num = (sym_result[0] > 0) and (sym_result[1] > 0);
                 } else {
                   print("is already a part number\n", .{});
                 }
@@ -167,7 +161,7 @@ pub fn main() !void{
                 number = (number * 10) + 5;
                 if (is_part_num != true) {
                   sym_result = try sym_check(per_line_counter, line_num); 
-                  is_part_num = sym_result[0] > 0 and sym_result[1] > 0;
+                  is_part_num = (sym_result[0] > 0) and (sym_result[1] > 0);
                 } else {
                   print("is already a part number\n", .{});
                 }
@@ -177,7 +171,7 @@ pub fn main() !void{
                 number = (number * 10) + 6;
                 if (is_part_num != true) {
                   sym_result = try sym_check(per_line_counter, line_num); 
-                  is_part_num = sym_result[0] > 0 and sym_result[1] > 0;
+                  is_part_num = (sym_result[0] > 0) and (sym_result[1] > 0);
                 } else {
                   print("is already a part number\n", .{});
                 }
@@ -188,7 +182,7 @@ pub fn main() !void{
                 number = (number * 10) + 7;
                 if (is_part_num != true) {
                   sym_result = try sym_check(per_line_counter, line_num); 
-                  is_part_num = sym_result[0] > 0 and sym_result[1] > 0;
+                  is_part_num = (sym_result[0] > 0) and (sym_result[1] > 0);
                 } else {
                   print("is already a part number\n", .{});
                 }
@@ -199,7 +193,7 @@ pub fn main() !void{
                 number = (number * 10) + 8;
                 if (is_part_num != true) {
                   sym_result = try sym_check(per_line_counter, line_num); 
-                  is_part_num = sym_result[0] > 0 and sym_result[1] > 0;
+                  is_part_num = (sym_result[0] > 0) and (sym_result[1] > 0);
                 } else {
                   print("is already a part number\n", .{});
                 }
@@ -210,7 +204,7 @@ pub fn main() !void{
                 number = (number * 10) + 9;
                 if (is_part_num != true) {
                   sym_result = try sym_check(per_line_counter, line_num); 
-                  is_part_num = sym_result[0] > 0 and sym_result[1] > 0;
+                  is_part_num = (sym_result[0] > 0) and (sym_result[1] > 0);
                 } else {
                   print("is already a part number\n", .{});
                 }
@@ -231,21 +225,34 @@ pub fn main() !void{
             if(is_part_num == true) {
               print("\n", .{});
               print("part number ={}\n", .{number});
-              //result += number;
+              var gear_found: bool = false;
+              
+              print("part arr items = {d}\n", .{part_struct_arr.items.len});
+              print("sym result = {d} {d}\n", .{sym_result[0], sym_result[1]});
               for (part_struct_arr.items[0..]) |part| {
+                  //print("sym result = {d} {d}\n", .{sym_result[0], sym_result[1]});
+                  print("part vector = {d} {d}\n", .{part.part_vector[0], part.part_vector[1]});
                   if (sym_result[0] == part.part_vector[0] and sym_result[1] == part.part_vector[1]) {
-                      if (part.part_num_1 == 0) {
-                          part = try part_struct.create(sym_result[0], sym_result[1], number, 0);
-                          part.part_num_1 = number;
-                      } else {
-                          part.part_num_2 = number;
-                          part = try part_struct.create(sym_result[0], sym_result[1], part.part_num_1, 0);
-                          result += part.part_num_2 * part.part_num_1;
-                          print("\n", .{});
-                          print("result = {}\n", .{result});
-                          print("\n", .{});
-                      }
+                      result += part.part_num * number;
+                      gear_found = true;
+                      print("\n", .{});
+                      print("result = {}\n", .{result});
+                      print("\n", .{});
                   }
+              }
+              
+              if (gear_found == false) {
+                print("sym arr items = {d}\n", .{sym_arr.items.len});
+                for (sym_arr.items[0..]) |part| {
+                  //print("sym result = {d} {d}\n", .{sym_result[0], sym_result[1]});
+                  print("part = {d} {d}\n", .{part[0], part[1]});
+                    if (sym_result[0] == part[0] and sym_result[1] == part[1]) {
+                        try part_struct_arr.append(try part_struct.create(sym_result[0], sym_result[1], number));
+                        print("new number = {}\n", .{number});
+                    } else {
+                        print("sym result = {d} {d}\n", .{sym_result[0], sym_result[1]});
+                    }
+                }
               }
             }
             number = 0;
