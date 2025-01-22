@@ -7,5 +7,5 @@ pub fn main() !void {
 
     _ = try stdin.readUntilDelimiter(&input, '\n');
 
-    try stdout.print("The user entered: {s}\n", .{input});
+    try stdout.print("The user entered: {s}", .{input});
 }

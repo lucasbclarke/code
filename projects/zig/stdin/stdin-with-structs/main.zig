@@ -1,17 +1,18 @@
 const std = @import("std");
 const print = @import("std").debug.print;
-var name: [11]u8 = undefined;
-var age: [4]u8 = undefined;
+var name: [6]u8 = undefined;
+var age: [3]u8 = undefined;
+
+const expexted_name: []const u8 = &[_]u8{ 'L', 'u', 'c', 'a', 's'};
+const expexted_age: []const u8 = &[_]u8{ '1', '4'};
 
 pub fn main() !void {
     print("Please enter your name\n", .{});
     const stdin = std.io.getStdIn().reader();
     _ = try stdin.readUntilDelimiter(&name, '\n');
-    //print("{s}\n", .{name});
 
     print("Please enter your age\n", .{});
     _ = try stdin.readUntilDelimiter(&age, '\n');
-    //print("{s}\n", .{age});
 
     const person = struct {
         name: []u8,
@@ -23,13 +24,18 @@ pub fn main() !void {
         .age = &age
     };
     
-    if (std.mem.eql(u8, &name, "Lucas")) {
-        if (std.mem.eql(u8, &age,"14")) {
+    if (std.mem.eql(u8, &name, expexted_name)) {
+        if (std.mem.eql(u8, &age, expexted_age)) {
             print("You are: \n", .{});
             print("{s}", .{lucas.name});
             print("{s}", .{lucas.age});
         }
     } else {
         print("Person not found\n", .{});
+        print("{c}", .{lucas.name});
+        print("{c}", .{lucas.age});
+
+        print("expec name = {c}\n", .{expexted_name});
+        print("expec age = {c}\n", .{expexted_age});
     }
 }
