@@ -10,7 +10,7 @@ int main(){
     	int sum;
 	sum = (ages[0] + ages[1] + ages[2]);
 	
-	printf("The total age of the clarke family is %d\n", sum);
+	printf("The total age of the family is %d\n", sum);
 
 	return 0;
 }
