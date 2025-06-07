@@ -4,3 +4,6 @@
 [submodule "projects/zig/game-project"]
 	path = projects/zig/game-project
 	url = https://github.com/lucasbclarke/game-project.git
+[submodule "projects/megacorp"]
+	path = projects/megacorp
+	url = https://github.com/lucasbclarke/megacorp.git
