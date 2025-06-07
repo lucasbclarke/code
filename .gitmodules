@@ -7,4 +7,10 @@
 [submodule "projects/megacorp"]
 	path = projects/megacorp
 	url = https://github.com/lucasbclarke/megacorp.git
-
+	branch = main
+[submodule "projects/webflyx"]
+	path = projects/webflyx
+	url = https://github.com/lucasbclarke/webflyx.git
+[submodule "projects/webflyx-local"]
+	path = projects/webflyx-local
+	url = https://github.com/lucasbclarke/webflyx.git
