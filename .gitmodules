@@ -1,0 +1,3 @@
+[submodule "projects/megacorp"]
+	path = projects/megacorp
+	url = /home/lucas/code/projects/megacorp
