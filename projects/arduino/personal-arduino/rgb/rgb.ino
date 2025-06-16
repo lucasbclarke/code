@@ -14,6 +14,7 @@ void setup() {
 int redValue;
 int greenValue;
 int blueValue;
+int pinkValue;
 
 void loop() {
   #define delayTime 20
