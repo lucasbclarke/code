@@ -19,6 +19,13 @@
 #include <limits.h>
 #include <dirent.h>
 
+
+#include <sys/types.h>
+#include <netinet/in.h>
+#include <string.h>
+#include <strings.h>
+
+
 // WIN32 /////////////////////////////////////////
 #ifdef __WIN32__
 #define socklen_t int32_t
