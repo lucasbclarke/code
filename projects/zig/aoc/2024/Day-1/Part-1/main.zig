@@ -10,13 +10,14 @@ pub fn main() !void {
     const memory = try allocator.alloc(u8, 100);
     defer allocator.free(memory);
     
-    var sequence = std.mem.splitSequence(u8, embedfile, " ");
-    print("next = {any}\n", .{sequence.next()});
-    print("index = {any}\n", .{sequence.index});
-    print("buffer = {any}\n", .{sequence.buffer});
-    print("peek = {any}\n", .{sequence.peek()});
-    print("first = {any}\n", .{sequence.first()});
-    print("delimiter = {any}\n", .{sequence.delimiter});
-    print("rest = {any}\n", .{sequence.rest()});
-    print("reset = {any}\n", .{sequence.reset()});
+    var sequence1 = std.mem.splitSequence(u8, embedfile, " ");
+    while (sequence1.next()) |seq1| {
+        print("seq1 = {s}\n", .{seq1});
+
+        var sequence2 = std.mem.splitSequence(u8, embedfile, "\n");
+        while (sequence2.next()) |seq2| {
+            print("seq2 = {s}\n", .{seq2});
+        }
+    }
+
 }
