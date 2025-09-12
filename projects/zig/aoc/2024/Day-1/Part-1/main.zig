@@ -7,17 +7,18 @@ pub fn main() !void {
     var fba = std.heap.FixedBufferAllocator.init(&buffer);
     const allocator = fba.allocator();
 
-    const memory = try allocator.alloc(u8, 100);
-    defer allocator.free(memory);
-    
-    var sequence1 = std.mem.splitSequence(u8, embedfile, " ");
-    while (sequence1.next()) |seq1| {
-        print("seq1 = {s}\n", .{seq1});
+    var map = std.StringHashMap([]const u8).init(allocator);
+    defer map.deinit();
 
-        var sequence2 = std.mem.splitSequence(u8, embedfile, "\n");
-        while (sequence2.next()) |seq2| {
-            print("seq2 = {s}\n", .{seq2});
-        }
+    try map.put("1", "one");
+    try map.put("2", "two");
+    try map.put("3", "three");
+
+    var sequence = std.mem.splitAny(u8, embedfile, " \n");
+    while (sequence.next()) |seq1| {
+        if (map.get(seq1)) |word| {
+            print("{s}\n", .{word});
+        } 
     }
 
 }
