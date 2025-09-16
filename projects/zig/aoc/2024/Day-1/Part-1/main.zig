@@ -9,16 +9,47 @@ pub fn main() !void {
 
     var map = std.StringHashMap([]const u8).init(allocator);
     defer map.deinit();
+    
+    const keys = [_][]const u8 {
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "",
+        "\n",
+    };
+    const values = [_][]const u8 {
+        "zero",
+        "one",
+        "two",
+        "three",
+        "four",
+        "five",
+        "six",
+        "seven",
+        "eight",
+        "nine",
+        "space",
+        "newline",
+    };
 
-    try map.put("1", "one");
-    try map.put("2", "two");
-    try map.put("3", "three");
+    for (keys, values) |key, value| {
+        try map.put(key, value);
+        print("key:value {s}:{s}\n", .{key, value});
+        //ask mr pike about why there newline is not working!
+    }
 
     var sequence = std.mem.splitAny(u8, embedfile, " \n");
     while (sequence.next()) |seq1| {
         if (map.get(seq1)) |word| {
             print("{s}\n", .{word});
-        } 
+        }
     }
 
 }
