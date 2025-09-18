@@ -56,7 +56,7 @@ pub fn main() !void {
                 print("{s}\n", .{word});
                 if (std.mem.eql(u8, word, "space")) {
                     if (first_list == true) {
-                        first_list == false;
+                        first_list = false;
                     } else {
                         print("this should not happen", .{});
                     }
@@ -64,7 +64,7 @@ pub fn main() !void {
                 }
                 if (std.mem.eql(u8, word, "newline")) {
                     if (second_list == true) {
-                        second_list == false;
+                        second_list = false;
                     } else {
                         print("this should not happen", .{});
                     }
@@ -74,13 +74,21 @@ pub fn main() !void {
                     digit_count += 1;
                     if (first_list == true) {
                         //add the number to the index notation
-                        switch (digit_count) {
-                            '1' => { key * 1 };
-                            '2' => { key * 10 };
-                            '3' => { key * 100 };
-                            '4' => { key * 1000 };
-                            '5' => { key * 10,000 };
+                        var keyIt = map.keyIterator();
+                        while (keyIt.next()) |key| {
+                            print("key?", .{});
+                                switch (digit_count) {
+                                    '1' => { key *= 10000; },
+                                    '2' => { key *= 1000; },
+                                    '3' => { key *= 100; },
+                                    '4' => { key *= 10; },
+                                    '5' => { key *= 1; },
+                                    else => {
+                                        print("this should not happen", .{});
+                                    }
+                                }
                         }
+
                     } else {
                         second_list == true;
                         //add the number to the index notation
