@@ -57,63 +57,228 @@ pub fn main() !void {
                 if (std.mem.eql(u8, word, "space")) {
                     if (first_list == true) {
                         first_list = false;
-                    } else {
-                        print("this should not happen", .{});
-                    }
+                    } 
                     digit_count = 0;
                 }
                 if (std.mem.eql(u8, word, "newline")) {
                     if (second_list == true) {
                         second_list = false;
-                    } else {
-                        print("this should not happen", .{});
-                    }
+                    } 
                     digit_count = 0;
                 }
                 if (std.mem.eql(u8, word, "one")) {
                     digit_count += 1;
                     if (first_list == true) {
-                        //add the number to the index notation
                         var keyIt = map.keyIterator();
                         while (keyIt.next()) |key| {
-                            print("key?", .{});
-                                switch (digit_count) {
-                                    '1' => { key *= 10000; },
-                                    '2' => { key *= 1000; },
-                                    '3' => { key *= 100; },
-                                    '4' => { key *= 10; },
-                                    '5' => { key *= 1; },
-                                    else => {
-                                        print("this should not happen", .{});
-                                    }
+                            var key_int: u32 = try std.fmt.parseInt(u32, key.*, 10);
+                            switch (digit_count) {
+                                1 => { key_int *= 10000; print("key_int = {d}\n", .{key_int}); },
+                                2 => { key_int *= 1000; print("key_int = {d}\n", .{key_int}); },
+                                3 => { key_int *= 100; print("key_int = {d}\n", .{key_int}); },
+                                4 => { key_int *= 10; print("key_int = {d}\n", .{key_int}); },
+                                5 => { key_int *= 1; print("key_int = {d}\n", .{key_int}); },
+                                else => {
+                                    print("digit_count = {d}\n", .{digit_count});
                                 }
+                            }
                         }
 
                     } else {
-                        second_list == true;
+                        second_list = true;
                         //add the number to the index notation
                     }
                 }
                 if (std.mem.eql(u8, word, "two")) {
-                    
+                    digit_count += 1;
+                    if (first_list == true) {
+                        var keyIt = map.keyIterator();
+                        while (keyIt.next()) |key| {
+                            var key_int: u32 = try std.fmt.parseInt(u32, key.*, 10);
+                            switch (digit_count) {
+                                1 => { key_int *= 10000; print("key_int = {d}\n", .{key_int}); },
+                                2 => { key_int *= 1000; print("key_int = {d}\n", .{key_int}); },
+                                3 => { key_int *= 100; print("key_int = {d}\n", .{key_int}); },
+                                4 => { key_int *= 10; print("key_int = {d}\n", .{key_int}); },
+                                5 => { key_int *= 1; print("key_int = {d}\n", .{key_int}); },
+                                else => {
+                                    print("digit_count = {d}\n", .{digit_count});
+                                }
+                            }
+                        }
+
+                    } else {
+                        second_list = true;
+                        //add the number to the index notation
+                    }
                 }
                 if (std.mem.eql(u8, word, "three")) {
+                    digit_count += 1;
+                    if (first_list == true) {
+                        var keyIt = map.keyIterator();
+                        while (keyIt.next()) |key| {
+                            var key_int: u32 = try std.fmt.parseInt(u32, key.*, 10);
+                            switch (digit_count) {
+                                1 => { key_int *= 10000; print("key_int = {d}\n", .{key_int}); },
+                                2 => { key_int *= 1000; print("key_int = {d}\n", .{key_int}); },
+                                3 => { key_int *= 100; print("key_int = {d}\n", .{key_int}); },
+                                4 => { key_int *= 10; print("key_int = {d}\n", .{key_int}); },
+                                5 => { key_int *= 1; print("key_int = {d}\n", .{key_int}); },
+                                else => {
+                                    print("digit_count = {d}\n", .{digit_count});
+                                }
+                            }
+                        }
+
+                    } else {
+                        second_list = true;
+                        //add the number to the index notation
+                    }
                 }
                 if (std.mem.eql(u8, word, "four")) {
+                    digit_count += 1;
+                    if (first_list == true) {
+                        var keyIt = map.keyIterator();
+                        while (keyIt.next()) |key| {
+                            var key_int: u32 = try std.fmt.parseInt(u32, key.*, 10);
+                            switch (digit_count) {
+                                1 => { key_int *= 10000; print("key_int = {d}\n", .{key_int}); },
+                                2 => { key_int *= 1000; print("key_int = {d}\n", .{key_int}); },
+                                3 => { key_int *= 100; print("key_int = {d}\n", .{key_int}); },
+                                4 => { key_int *= 10; print("key_int = {d}\n", .{key_int}); },
+                                5 => { key_int *= 1; print("key_int = {d}\n", .{key_int}); },
+                                else => {
+                                    print("digit_count = {d}\n", .{digit_count});
+                                }
+                            }
+                        }
+
+                    } else {
+                        second_list = true;
+                        //add the number to the index notation
+                    }
                 }
                 if (std.mem.eql(u8, word, "five")) {
+
+                    digit_count += 1;
+                    if (first_list == true) {
+                        var keyIt = map.keyIterator();
+                        while (keyIt.next()) |key| {
+                            var key_int: u32 = try std.fmt.parseInt(u32, key.*, 10);
+                            switch (digit_count) {
+                                1 => { key_int *= 10000; print("key_int = {d}\n", .{key_int}); },
+                                2 => { key_int *= 1000; print("key_int = {d}\n", .{key_int}); },
+                                3 => { key_int *= 100; print("key_int = {d}\n", .{key_int}); },
+                                4 => { key_int *= 10; print("key_int = {d}\n", .{key_int}); },
+                                5 => { key_int *= 1; print("key_int = {d}\n", .{key_int}); },
+                                else => {
+                                    print("digit_count = {d}\n", .{digit_count});
+                                }
+                            }
+                        }
+
+                    } else {
+                        second_list = true;
+                        //add the number to the index notation
+                    }
                 }
                 if (std.mem.eql(u8, word, "six")) {
+                    digit_count += 1;
+                    if (first_list == true) {
+                        var keyIt = map.keyIterator();
+                        while (keyIt.next()) |key| {
+                            var key_int: u32 = try std.fmt.parseInt(u32, key.*, 10);
+                            switch (digit_count) {
+                                1 => { key_int *= 10000; print("key_int = {d}\n", .{key_int}); },
+                                2 => { key_int *= 1000; print("key_int = {d}\n", .{key_int}); },
+                                3 => { key_int *= 100; print("key_int = {d}\n", .{key_int}); },
+                                4 => { key_int *= 10; print("key_int = {d}\n", .{key_int}); },
+                                5 => { key_int *= 1; print("key_int = {d}\n", .{key_int}); },
+                                else => {
+                                    print("digit_count = {d}\n", .{digit_count});
+                                }
+                            }
+                        }
+
+                    } else {
+                        second_list = true;
+                        //add the number to the index notation
+                    }
                 }
                 if (std.mem.eql(u8, word, "seven")) {
+                    digit_count += 1;
+                    if (first_list == true) {
+                        var keyIt = map.keyIterator();
+                        while (keyIt.next()) |key| {
+                            var key_int: u32 = try std.fmt.parseInt(u32, key.*, 10);
+                            switch (digit_count) {
+                                1 => { key_int *= 10000; print("key_int = {d}\n", .{key_int}); },
+                                2 => { key_int *= 1000; print("key_int = {d}\n", .{key_int}); },
+                                3 => { key_int *= 100; print("key_int = {d}\n", .{key_int}); },
+                                4 => { key_int *= 10; print("key_int = {d}\n", .{key_int}); },
+                                5 => { key_int *= 1; print("key_int = {d}\n", .{key_int}); },
+                                else => {
+                                    print("digit_count = {d}\n", .{digit_count});
+                                }
+                            }
+                        }
+
+                    } else {
+                        second_list = true;
+                        //add the number to the index notation
+                    }
                 }
                 if (std.mem.eql(u8, word, "eight")) {
+                    digit_count += 1;
+                    if (first_list == true) {
+                        var keyIt = map.keyIterator();
+                        while (keyIt.next()) |key| {
+                            var key_int: u32 = try std.fmt.parseInt(u32, key.*, 10);
+                            switch (digit_count) {
+                                1 => { key_int *= 10000; print("key_int = {d}\n", .{key_int}); },
+                                2 => { key_int *= 1000; print("key_int = {d}\n", .{key_int}); },
+                                3 => { key_int *= 100; print("key_int = {d}\n", .{key_int}); },
+                                4 => { key_int *= 10; print("key_int = {d}\n", .{key_int}); },
+                                5 => { key_int *= 1; print("key_int = {d}\n", .{key_int}); },
+                                else => {
+                                    print("digit_count = {d}\n", .{digit_count});
+                                }
+                            }
+                        }
+
+                    } else {
+                        second_list = true;
+                        //add the number to the index notation
+                    }
                 }
                 if (std.mem.eql(u8, word, "nine")) {
+                    digit_count += 1;
+                    if (first_list == true) {
+                        var keyIt = map.keyIterator();
+                        while (keyIt.next()) |key| {
+                            var key_int: u32 = try std.fmt.parseInt(u32, key.*, 10);
+                            switch (digit_count) {
+                                1 => { key_int *= 10000; print("key_int = {d}\n", .{key_int}); },
+                                2 => { key_int *= 1000; print("key_int = {d}\n", .{key_int}); },
+                                3 => { key_int *= 100; print("key_int = {d}\n", .{key_int}); },
+                                4 => { key_int *= 10; print("key_int = {d}\n", .{key_int}); },
+                                5 => { key_int *= 1; print("key_int = {d}\n", .{key_int}); },
+                                else => {
+                                    print("digit_count = {d}\n", .{digit_count});
+                                }
+                            }
+                        }
+
+                    } else {
+                        second_list = true;
+                        //add the number to the index notation
+                    }
                 }
             }
         }
         print("newline\n", .{});
+        second_list = false;
+        first_list = true;
     }
 
 }
