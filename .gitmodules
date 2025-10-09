@@ -13,3 +13,6 @@
 [submodule "projects/zig/mindstorm"]
 	path = projects/zig/mindstorm
 	url = https://github.com/lucasbclarke/mindstorm
+[submodule "projects/zig/aoc"]
+	path = projects/zig/aoc
+	url = https://github.com/lucasbclarke/aoc
