@@ -1,3 +1,4 @@
 ./projects/zig/mindstorm/.zig-cache
 **/.zig-cache/
 **/.vs/
+**/zig-out/
