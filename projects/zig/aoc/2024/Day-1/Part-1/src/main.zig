@@ -274,6 +274,8 @@ pub fn main() !void {
                         //add the number to the index notation
                     }
                 }
+            } else {
+                 print("could not find key, seq1 = {d}", .{seq1});
             }
         }
         print("newline\n", .{});
